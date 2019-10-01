@@ -1,0 +1,14 @@
+require(openintro)
+require(ggplot2)
+data(ncbirths)
+
+head(ncbirths)
+ggplot(ncbirths, aes(x = weeks, y = weight)) + geom_point()
+
+weeks_2_weight <- lm(weight ~ weeks, data = ncbirths)
+summary(weeks_2_weight)
+plot(weeks_2_weight)
+
+weight_2_visits <- lm(weight ~ weeks * visits, data = ncbirths)
+summary(weight_2_visits)
+plot(weight_2_visits)
